@@ -1,0 +1,19 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block main-content %}
+
+<div class="m-6 " >
+    {% for data in productData%}
+    <a style="padding-left: 5%;" href="{% url 'product-detail' data.id %}" class="btn"><div class="item">
+        <img src="{{data.product_image.url}}" alt="" height="250px" width="200px"><br><br>
+        <span class="fw-bold ">{{ data.title }}</span><br>
+        <span class="fs-5">Rs. {{ data.discounted_price}}</span></a>
+
+    {% endfor %}
+</div>
+
+
+
+{% endblock main-content %}
